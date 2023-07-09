@@ -7,11 +7,6 @@ variables:
   value: 'Release'
 - name: releaseBranchName
   value: 'release'
-- name: ServiceConnectionDev
-  value: 'ServiceConnection-WebApp-Dev'
-- name: ServiceConnectionUat
-  value: 'ServiceConnection-WebApp-Dev'
-
 
 stages:
 - stage: 'Build'
