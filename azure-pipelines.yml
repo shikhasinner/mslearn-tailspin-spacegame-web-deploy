@@ -91,15 +91,15 @@ stages:
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
               
-- stage: 'Test'
-  displayName: 'Deploy to the test environment'
+- stage: 'Staging'
+  displayName: 'Deploy to the Staging environment'
   dependsOn: Dev
   #condition: eq(variables['Build.Reason'], 'Schedule')
   jobs:
   - deployment: Deploy
     pool:
       vmImage: 'ubuntu-20.04'
-    environment: test
+    environment: staging
     variables:
     - group: 'Release'
     strategy:
@@ -113,5 +113,5 @@ stages:
             inputs:
               azureSubscription: 'ShikhaSinha (c6a4ffe5-6f74-4846-b4e1-57386c4b7935)'
               appType: 'webAppLinux'
-              appName: '$(WebAppNameTest)'
+              appName: '$(WebAppNameStaging)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
