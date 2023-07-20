@@ -7,10 +7,10 @@ variables:
   value: 'Release'
 - name: releaseBranchName
   value: 'release'
-# - name: ServiceConnectionDev
-#   value: 'ServiceConnection-WebApp-Dev'
-# - name: ServiceConnectionUat
-#   value: 'ServiceConnection-WebApp-Uat'
+- name: ServiceConnectionDev
+  value: 'ServiceConnection-WebApp-Dev'
+- name: ServiceConnectionUat
+  value: 'ServiceConnection-WebApp-Uat'
 
 
 stages:
@@ -82,7 +82,7 @@ stages:
   - template: jobs/deploy.yaml # Template 
     parameters:
       environment: 'dev'
-      ServiceConnectionName: ${{ variables.ServiceConnectionDev }}
+      ServiceConnectionName: $(ServiceConnectionDev)
       webappName: $(WebAppNameDev)
 
               
@@ -94,5 +94,5 @@ stages:
   - template: jobs/deploy.yaml # Template 
     parameters:
       environment: 'staging'
-      ServiceConnectionName: ${{ variables.ServiceConnectionUat }}
+      ServiceConnectionName: $(ServiceConnectionUat)
       webappName: $(WebAppNameStaging)
