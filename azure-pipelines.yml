@@ -10,7 +10,7 @@ variables:
 - name: ServiceConnectionDev
   value: 'ServiceConnection-WebApp-Dev'
 - name: ServiceConnectionUat
-  value: 'ServiceConnection-WebApp-Uat'
+  value: 'ServiceConnection-WebApp-Dev'
 
 
 stages:
